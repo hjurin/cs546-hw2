@@ -270,8 +270,6 @@ void gauss() {
     sprintf(print_tmp, "Computing Serially.\n");
     print_all();
 
-    printf("I am %d of %d\n", rank, size);
-
     /* Gaussian elimination */
     for (row = 0; row < N ; row++) {
         MPI_Bcast((float *)A[row], N, MPI_FLOAT, 0, MPI_COMM_WORLD);
