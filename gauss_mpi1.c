@@ -285,12 +285,14 @@ void gauss() {
                 break;
             }
             multiplier = A[row + rank][norm] / A[norm][norm];
-            printf("I am %d, this is row %d and the multiplier parameters are %f and %f\n", rank, row + rank, A[row + rank][norm], A[norm][norm]);
-            if (norm == 1) {
-                printf("I am %d, this is row %d and the multiplier is %f\n", rank, row + rank, multiplier);
+            printf("process %d, row %d before : [", rank, row + rank);
+            for (col = norm; col < N; col++) {
+                printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
             }
+            printf("process %d, row %d after : [", rank, row + rank);
             for (col = norm; col < N; col++) {
                 A[row + rank][col] -= A[norm][col] * multiplier;
+                printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
             }
             B[row + rank] -= B[norm] * multiplier;
 
