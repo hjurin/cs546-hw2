@@ -1,0 +1,3 @@
+
+Output file = 0_3_8_gauss_mpi1.txt
+Usage: ./a.out <matrix_dimension> [random seed]

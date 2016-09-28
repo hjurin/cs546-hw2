@@ -1,0 +1,20 @@
+
+Output file = 3_26_21_gauss_mpi1.txt
+Random seed = 0
+
+Matrix dimension N = 10.
+
+Initializing...
+
+Starting clock.
+Computing Serially.
+Stopped clock.
+
+X = [-3.78;  1.90;  7.32; -1.59; -16.83; -10.91; -5.73; 37.29; -4.65;  5.03]
+
+Elapsed time = 0.701 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0 ms.
+My system CPU time for parent = 0 ms.
+My total CPU time for child processes = 0 ms.
+--------------------------------------------

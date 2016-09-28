@@ -1,0 +1,281 @@
+host: hjurin.local
+
+==================================================================================================
+mpiexec options:
+----------------
+  Base path: /usr/local/bin/
+  Launcher: (null)
+  Debug level: 1
+  Enable X: -1
+
+  Global environment:
+  -------------------
+    TERM_PROGRAM=Apple_Terminal
+    SHELL=/bin/bash
+    TERM=xterm-256color
+    CLICOLOR=1
+    TMPDIR=/var/folders/rg/663csx310mg56649l74rs2_c0000gn/T/
+    Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.BVOLYL1PKI/Render
+    TERM_PROGRAM_VERSION=361.1
+    TERM_SESSION_ID=BB71E972-E1FF-4FB5-979F-D47611A178B2
+    USER=Victor
+    SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.PDTq9zjY9i/Listeners
+    __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x1
+    LSCOLORS=ExFxBxDxCxegedabagacad
+    PATH=/Users/Victor/anaconda3/bin:/Users/Victor/anaconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/bin:/usr/bin:/usr/local/aliasbin:/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Applications/Racket v6.1.1/bin://Users/Victor/.script/Xcode_lib/
+    PWD=/Users/Victor/Library/Mobile Documents/com~apple~CloudDocs/IIT/CS546 - Parallel and distributed processing/HW2
+    EDITOR=emacs
+    LANG=fr_FR.UTF-8
+    XPC_FLAGS=0x0
+    PS1=\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\W\[\033[m\]$ 
+    HISTCONTROL=ignoreboth
+    XPC_SERVICE_NAME=0
+    SHLVL=1
+    HOME=/Users/Victor
+    LOGNAME=Victor
+    _=/usr/local/bin/mpirun
+    OLDPWD=/Users/Victor/Library/Mobile Documents/com~apple~CloudDocs/IIT/CS546 - Parallel and distributed processing/HW2/output_files
+
+  Hydra internal environment:
+  ---------------------------
+    GFORTRAN_UNBUFFERED_PRECONNECTED=y
+
+
+    Proxy information:
+    *********************
+      [1] proxy: hjurin.local (1 cores)
+      Exec list: ./gauss_mpi (6 processes); 
+
+
+==================================================================================================
+
+[mpiexec@hjurin.local] Timeout set to -1 (-1 means infinite)
+[mpiexec@hjurin.local] Got a control port string of hjurin.local:53311
+
+Proxy launch args: /usr/local/bin/hydra_pmi_proxy --control-port hjurin.local:53311 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --proxy-id 
+
+Arguments being passed to proxy 0:
+--version 3.2 --iface-ip-env-name MPIR_CVAR_CH3_INTERFACE_HOSTNAME --hostname hjurin.local --global-core-map 0,1,1 --pmi-id-map 0,0 --global-process-count 6 --auto-cleanup 1 --pmi-kvsname kvs_15919_0 --pmi-process-mapping (vector,(0,1,1)) --ckpoint-num -1 --global-inherited-env 25 'TERM_PROGRAM=Apple_Terminal' 'SHELL=/bin/bash' 'TERM=xterm-256color' 'CLICOLOR=1' 'TMPDIR=/var/folders/rg/663csx310mg56649l74rs2_c0000gn/T/' 'Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.BVOLYL1PKI/Render' 'TERM_PROGRAM_VERSION=361.1' 'TERM_SESSION_ID=BB71E972-E1FF-4FB5-979F-D47611A178B2' 'USER=Victor' 'SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.PDTq9zjY9i/Listeners' '__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x1' 'LSCOLORS=ExFxBxDxCxegedabagacad' 'PATH=/Users/Victor/anaconda3/bin:/Users/Victor/anaconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/bin:/usr/bin:/usr/local/aliasbin:/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Applications/Racket v6.1.1/bin://Users/Victor/.script/Xcode_lib/' 'PWD=/Users/Victor/Library/Mobile Documents/com~apple~CloudDocs/IIT/CS546 - Parallel and distributed processing/HW2' 'EDITOR=emacs' 'LANG=fr_FR.UTF-8' 'XPC_FLAGS=0x0' 'PS1=\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\W\[\033[m\]$ ' 'HISTCONTROL=ignoreboth' 'XPC_SERVICE_NAME=0' 'SHLVL=1' 'HOME=/Users/Victor' 'LOGNAME=Victor' '_=/usr/local/bin/mpirun' 'OLDPWD=/Users/Victor/Library/Mobile Documents/com~apple~CloudDocs/IIT/CS546 - Parallel and distributed processing/HW2/output_files' --global-user-env 0 --global-system-env 1 'GFORTRAN_UNBUFFERED_PRECONNECTED=y' --proxy-core-count 1 --exec --exec-appnum 0 --exec-proc-count 6 --exec-local-env 0 --exec-wdir /Users/Victor/Library/Mobile Documents/com~apple~CloudDocs/IIT/CS546 - Parallel and distributed processing/HW2 --exec-args 3 ./gauss_mpi 10 0 
+
+[mpiexec@hjurin.local] Launch arguments: /usr/local/bin/hydra_pmi_proxy --control-port hjurin.local:53311 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --proxy-id 0 
+[proxy:0:0@hjurin.local] got pmi command (from 0): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 6): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 8): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 13): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 0): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 6): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 8): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 17): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 21): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hjurin.local] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hjurin.local] got pmi command (from 0): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 6): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 8): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 13): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 17): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 6): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 8): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 13): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 21): get_maxes
+
+[proxy:0:0@hjurin.local] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hjurin.local] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 6): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 8): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 13): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 17): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 0): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 6): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 8): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 21): get_appnum
+
+[proxy:0:0@hjurin.local] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hjurin.local] got pmi command (from 6): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 13): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 17): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 8): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 21): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 13): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 17): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 21): get_my_kvsname
+
+[proxy:0:0@hjurin.local] PMI response: cmd=my_kvsname kvsname=kvs_15919_0
+[proxy:0:0@hjurin.local] got pmi command (from 13): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 17): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 21): get
+kvsname=kvs_15919_0 key=PMI_process_mapping 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hjurin.local] got pmi command (from 17): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 21): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 0): put
+kvsname=kvs_15919_0 key=sharedFilename[0] value=/tmp/mpich_shar_tmpsuAmOF 
+[proxy:0:0@hjurin.local] cached command: sharedFilename[0]=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 0): barrier_in
+
+[proxy:0:0@hjurin.local] flushing 1 put command(s) out
+[proxy:0:0@hjurin.local] forwarding command (cmd=put sharedFilename[0]=/tmp/mpich_shar_tmpsuAmOF) upstream
+[mpiexec@hjurin.local] [pgid: 0] got PMI command: cmd=put sharedFilename[0]=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] forwarding command (cmd=barrier_in) upstream
+[mpiexec@hjurin.local] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@hjurin.local] PMI response to fd 6 pid 0: cmd=keyval_cache sharedFilename[0]=/tmp/mpich_shar_tmpsuAmOF 
+[mpiexec@hjurin.local] PMI response to fd 6 pid 0: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] got pmi command (from 6): get
+kvsname=kvs_15919_0 key=sharedFilename[0] 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] got pmi command (from 8): get
+kvsname=kvs_15919_0 key=sharedFilename[0] 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] got pmi command (from 13): get
+kvsname=kvs_15919_0 key=sharedFilename[0] 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] got pmi command (from 17): get
+kvsname=kvs_15919_0 key=sharedFilename[0] 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] got pmi command (from 21): get
+kvsname=kvs_15919_0 key=sharedFilename[0] 
+[proxy:0:0@hjurin.local] PMI response: cmd=get_result rc=0 msg=success value=/tmp/mpich_shar_tmpsuAmOF
+[proxy:0:0@hjurin.local] got pmi command (from 0): put
+kvsname=kvs_15919_0 key=P0-businesscard value=description#hjurin.local$port#53316$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P0-businesscard=description#hjurin.local$port#53316$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 6): put
+kvsname=kvs_15919_0 key=P1-businesscard value=description#hjurin.local$port#53313$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P1-businesscard=description#hjurin.local$port#53313$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 0): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 8): put
+kvsname=kvs_15919_0 key=P2-businesscard value=description#hjurin.local$port#53312$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P2-businesscard=description#hjurin.local$port#53312$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 13): put
+kvsname=kvs_15919_0 key=P3-businesscard value=description#hjurin.local$port#53315$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P3-businesscard=description#hjurin.local$port#53315$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 17): put
+kvsname=kvs_15919_0 key=P4-businesscard value=description#hjurin.local$port#53317$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P4-businesscard=description#hjurin.local$port#53317$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 21): put
+kvsname=kvs_15919_0 key=P5-businesscard value=description#hjurin.local$port#53314$ifname#104.194.102.135$ 
+[proxy:0:0@hjurin.local] cached command: P5-businesscard=description#hjurin.local$port#53314$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hjurin.local] got pmi command (from 6): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 8): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 13): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 17): barrier_in
+
+[proxy:0:0@hjurin.local] got pmi command (from 21): barrier_in
+
+[proxy:0:0@hjurin.local] flushing 6 put command(s) out
+[proxy:0:0@hjurin.local] forwarding command (cmd=put P0-businesscard=description#hjurin.local$port#53316$ifname#104.194.102.135$ P1-businesscard=description#hjurin.local$port#53313$ifname#104.194.102.135$ P2-businesscard=description#hjurin.local$port#53312$ifname#104.194.102.135$ P3-businesscard=description#hjurin.local$port#53315$ifname#104.194.102.135$ P4-businesscard=description#hjurin.local$port#53317$ifname#104.194.102.135$ P5-businesscard=description#hjurin.local$port#53314$ifname#104.194.102.135$) upstream
+[mpiexec@hjurin.local] [pgid: 0] got PMI command: cmd=put P0-businesscard=description#hjurin.local$port#53316$ifname#104.194.102.135$ P1-businesscard=description#hjurin.local$port#53313$ifname#104.194.102.135$ P2-businesscard=description#hjurin.local$port#53312$ifname#104.194.102.135$ P3-businesscard=description#hjurin.local$port#53315$ifname#104.194.102.135$ P4-businesscard=description#hjurin.local$port#53317$ifname#104.194.102.135$ P5-businesscard=description#hjurin.local$port#53314$ifname#104.194.102.135$
+[proxy:0:0@hjurin.local] forwarding command (cmd=barrier_in) upstream
+[mpiexec@hjurin.local] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@hjurin.local] PMI response to fd 6 pid 21: cmd=keyval_cache P0-businesscard=description#hjurin.local$port#53316$ifname#104.194.102.135$ P1-businesscard=description#hjurin.local$port#53313$ifname#104.194.102.135$ P2-businesscard=description#hjurin.local$port#53312$ifname#104.194.102.135$ P3-businesscard=description#hjurin.local$port#53315$ifname#104.194.102.135$ P4-businesscard=description#hjurin.local$port#53317$ifname#104.194.102.135$ P5-businesscard=description#hjurin.local$port#53314$ifname#104.194.102.135$ 
+[mpiexec@hjurin.local] PMI response to fd 6 pid 21: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+[proxy:0:0@hjurin.local] PMI response: cmd=barrier_out
+
+Output file = 14_45_11_gauss_mpi1.txt
+I am 5 of 6
+I am 1 of 6
+I am 4 of 6
+I am 3 of 6
+Random seed = 0
+I am 2 of 6
+
+Matrix dimension N = 10.
+
+Initializing...
+
+Starting clock.
+Computing Serially.
+I am 0 of 6
+[proxy:0:0@hjurin.local] got pmi command (from 13): abort
+exitcode=676933646 
+[proxy:0:0@hjurin.local] we don't understand this command abort; forwarding upstream
+[mpiexec@hjurin.local] [pgid: 0] got PMI command: cmd=abort exitcode=676933646

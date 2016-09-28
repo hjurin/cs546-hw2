@@ -1,0 +1,9 @@
+
+Output file = 3_5_58_gauss_mpi1.txt
+
+Matrix dimension N = 10.
+
+Initializing...
+
+Starting clock.
+Computing Serially.

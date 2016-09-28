@@ -1,0 +1,10 @@
+
+Output file = 4_27_24_gauss_mpi1.txt
+Random seed = 0
+
+Matrix dimension N = 10.
+
+Initializing...
+
+Starting clock.
+Computing Serially.

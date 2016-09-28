@@ -1,0 +1,140 @@
+
+Output file = 1_57_47_gauss_mpi1.txt
+
+Output file = 1_57_47_gauss_mpi1.txt
+
+Output file = 1_57_47_gauss_mpi1.txt
+
+Output file = 1_57_47_gauss_mpi1.txt
+
+Output file = 1_57_47_gauss_mpi1.txt
+
+Matrix dimension N = 5.
+
+Matrix dimension N = 5.
+
+Matrix dimension N = 5.
+
+Matrix dimension N = 5.
+
+Matrix dimension N = 5.
+
+Initializing...
+
+Initializing...
+
+Initializing...
+
+Initializing...
+
+A =
+	
+A =
+	
+A =
+	
+A =
+	2832.54, 2839.72, 2891.01, 2829.97, 38094.94, 18726.54, 60467.32, 56402.11, 45051.74, 62728.60, 31214.14, 14884.08, 53598.95, 4737.35, 4743.21;
+	45158.54;
+	7108.74, 16917.87, 26995.92, 12543.10, 40523.70, 33083.50, 14813.70;
+	37526.65, 65221.73;
+	1954.44, 335.05, 27303.42, 45176.34, 49737.12, 
+Initializing...
+27311.28;
+	7486.60, 47180.21, 7183.72;
+	60014.01, 
+A =
+	43461.34, 5806.60, 14660.38, 2838.69, 27055.13, 48176.17, 4543.03, 14661.74, 31928.71, 26548.00;
+	44215.91, 2604.02;
+	13021.82, 20097.69, 19401.90;
+	37785.19, 47232.61, 46495.08, 5550.44, 56478.00, 26871.96, 65132.97, 4482.59, 24906.42;
+	63769.04, 23083.58;
+	24058.85, 65212.95, 46130.79;
+	9263.30, 8460.30, 17079.54, 11899.96, 890.95, 5326.77, 32995.21, 31666.21, 2233.20, 53218.64;
+	28446.04, 28481.77, 57109.91, 57511.57, 42018.81, 37999.95, 56036.12, 23781.67;
+	58166.04;
+	60691.82, 44733.36, 65476.95, 40258.35, 9958.64, 6524.79;
+	29218.79;
+	4916.49, 56079.11, 
+B = [8165.47, 61652.60, 32065.29; 52252.18, 6447.40, 50504.24, 7498.24; 10298.21;
+	45209.20, 5971.10, 16758.60; 46730.87, 20447.47;
+	18227.52, 56180.30; 60006.77;
+	48291.59, 46846.14, 61498.91, 18930.26]
+59695.34, 5494.83, 
+Starting clock.
+30467.34, 4509.10, 4676.53, 6647.63, 56083.20, 2554.54, 55437.40;
+	1436.33;
+	20728.53, 
+B = [
+B = [38886.36; 273.01;
+	61729.66;
+	43996.72, 34598.43; 
+B = [11323.10; 59044.50; 31843.77; 28385.89; 20764.44, 53319.69; 19914.15; 8034.45, 24780.65; 51608.48; 60521.28, 11127.58]
+23142.40]
+911.54;
+	
+Starting clock.
+22258.11; 
+Starting clock.
+
+B = [8867.05; 10186.94; 55520.27]
+8778.16; 
+Starting clock.
+30834.75; 62437.52; 50293.12]
+
+Starting clock.
+Computing Serially.
+Computing Serially.
+Computing Serially.
+Computing Serially.
+Computing Serially.
+Stopped clock.
+Stopped clock.
+Stopped clock.
+Stopped clock.
+
+X = [
+X = [
+X = [
+X = [53.98;  1.06;  4.18; -691.55; -1.23;  0.71; -0.58; 42.03; -3.01; -65.21; -0.62;  1.09;  1.22;  0.65]
+ 1.09; -1.03;  2.29;  0.90]
+ 0.20]
+
+Elapsed time = 663.263 ms.
+
+Elapsed time = 502.385 ms.
+
+Elapsed time = 568.983 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+(CPU times are accurate to the nearest 0.001 ms)
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0.001 ms.
+My total CPU time for parent = 0.001 ms.
+My total CPU time for parent = 0.002 ms.
+Stopped clock.
+55.17]
+My system CPU time for parent = 0.002 ms.
+My system CPU time for parent = 0.001 ms.
+
+X = [My system CPU time for parent = 0.001 ms.
+
+Elapsed time = 500.964 ms.
+My total CPU time for child processes = 0 ms.
+My total CPU time for child processes = 0 ms.
+My total CPU time for child processes = 0 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+-1310.57; --------------------------------------------
+--------------------------------------------
+--------------------------------------------
+81.37; My total CPU time for parent = 0.001 ms.
+-83.78; My system CPU time for parent = 0.001 ms.
+My total CPU time for child processes = 0 ms.
+-23.25; 16.11]
+--------------------------------------------
+
+Elapsed time = 570.674 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0.001 ms.
+My system CPU time for parent = 0.001 ms.
+My total CPU time for child processes = 0 ms.
+--------------------------------------------

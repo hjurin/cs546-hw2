@@ -1,0 +1,28 @@
+
+Output file = 0_3_23_gauss_mpi1.txt
+
+Matrix dimension N = 5.
+
+Initializing...
+
+A =
+	15484.38, 26473.52, 38304.11, 64898.46, 59429.90;
+	2427.57, 16493.83, 17113.45, 32768.56, 4101.86;
+	36700.71, 60105.95, 53788.03, 42154.49, 61603.78;
+	3978.55, 28842.44, 11799.68, 46353.08, 36945.99;
+	20696.33, 50561.54, 5302.66, 29831.91, 63168.51;
+	
+B = [43666.25; 48018.60; 58302.71; 34520.38; 55531.42]
+
+Starting clock.
+Computing Serially.
+Stopped clock.
+
+X = [ 7.70; -0.60; -3.26;  3.20; -2.40]
+
+Elapsed time = 277.018 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0 ms.
+My system CPU time for parent = 0 ms.
+My total CPU time for child processes = 0 ms.
+--------------------------------------------
