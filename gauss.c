@@ -243,10 +243,6 @@ void gauss() {
     for (norm = 0; norm < N - 1; norm++) {
         for (row = norm + 1; row < N; row++) {
             multiplier = A[row][norm] / A[norm][norm];
-            printf("This is row %d and the multiplier parameters are %f and %f\n", row, A[row][norm], A[norm][norm]);
-            if (norm == 1) {
-                printf("This is row %d and the multiplier is %f\n", row, multiplier);
-            }
             for (col = norm; col < N; col++) {
                 A[row][col] -= A[norm][col] * multiplier;
             }
