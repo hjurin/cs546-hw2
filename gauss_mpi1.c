@@ -243,6 +243,21 @@ int main(int argc, char **argv) {
 
 /* ------------------ Above Was Provided --------------------- */
 
+
+void printAB() {
+    int row, col;
+    printf("\nA%d =\n\t", rank);
+    for (row = 0; row < N; row++) {
+        for (col = 0; col < N; col++) {
+            printf("%5.2f%s", A[row][col], (col < N-1) ? ", " : ";\n\t");
+        }
+    }
+    printf("\nB%d = [", rank);
+    for (col = 0; col < N; col++) {
+        printf("%5.2f%s", B[col], (col < N-1) ? "; " : "]\n");
+    }
+}
+
 /****** You will replace this routine with your own parallel version *******/
 /* Provided global variables are MAXN, N, A[][], B[], and X[],
 * defined in the beginning of this code.  X[] is initialized to zeros.
@@ -263,19 +278,11 @@ void gauss() {
     }
     MPI_Bcast((float *)B, N, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    // ////////////////////
-    // printf("\nA%d =\n\t", rank);
-    // for (row = 0; row < N; row++) {
-    //     for (col = 0; col < N; col++) {
-    //         printf("%5.2f%s", A[row][col], (col < N-1) ? ", " : ";\n\t");
-    //     }
-    // }
-    // printf("\nB%d = [", rank);
-    // for (col = 0; col < N; col++) {
-    //     printf("%5.2f%s", B[col], (col < N-1) ? "; " : "]\n");
-    // }
-    // ///////////////////////////
-    MPI_Barrier(MPI_COMM_WORLD);
+    ///////////////////////////
+    if (rank == 1)
+        printAB();
+    ///////////////////////////
+    // MPI_Barrier(MPI_COMM_WORLD);
 
     // loop that iterates on sub-matrices
     for (norm = 0; norm < N - 1; norm++) {
@@ -285,28 +292,29 @@ void gauss() {
                 break;
             }
             multiplier = A[row + rank][norm] / A[norm][norm];
-            if (norm == 1 && rank == 1) {
-                printf("norm %d, process %d, row %d before : [", norm, rank, row + rank);
-                for (col = 0; col < N; col++) {
-                    printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
-                }
-                printf("norm %d, process %d, row %d after : [", norm, rank, row + rank);
-            }
+            // if (norm == 1 && rank == 1) {
+            //     printf("norm %d, process %d, row %d before : [", norm, rank, row + rank);
+            //     for (col = 0; col < N; col++) {
+            //         printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+            //     }
+            //     printf("norm %d, process %d, row %d after : [", norm, rank, row + rank);
+            // }
             for (col = norm; col < N; col++) {
                 A[row + rank][col] -= A[norm][col] * multiplier;
             }
-            if (norm == 0 && rank == 1) {
-                for (col = 0; col < N; col++) {
-                    printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
-                }
-            }
+            // if (norm == 0 && rank == 1) {
+            //     for (col = 0; col < N; col++) {
+            //         printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+            //     }
+            // }
             B[row + rank] -= B[norm] * multiplier;
-            MPI_Barrier(MPI_COMM_WORLD);
 
             // we gather the new computed rows
             MPI_Bcast((float *)A[row + rank], N, MPI_FLOAT, rank, MPI_COMM_WORLD);
             MPI_Bcast((float *)&(B[row + rank]), 1, MPI_FLOAT, rank, MPI_COMM_WORLD);
         }
+        if (rank == 1)
+            printAB();
 
         // before getting to the next iteration, we want every process to have the same A and B
         MPI_Barrier(MPI_COMM_WORLD);
