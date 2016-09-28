@@ -301,6 +301,7 @@ void gauss() {
                 }
             }
             B[row + rank] -= B[norm] * multiplier;
+            MPI_Barrier(MPI_COMM_WORLD);
 
             // we gather the new computed rows
             MPI_Bcast((float *)A[row + rank], N, MPI_FLOAT, rank, MPI_COMM_WORLD);
