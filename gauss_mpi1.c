@@ -278,11 +278,8 @@ void gauss() {
     }
     MPI_Bcast((float *)B, N, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    ///////////////////////////
-    if (rank == 1)
-        printAB("beg");
-    ///////////////////////////
-    // MPI_Barrier(MPI_COMM_WORLD);
+    // if (rank == 1)
+    //     printAB("beg");
 
     // loop that iterates on sub-matrices
     for (norm = 0; norm < N - 1; norm++) {
@@ -298,7 +295,6 @@ void gauss() {
             B[row + rank] -= B[norm] * multiplier;
 
         }
-
         // we gather the new computed rows
         for (row = norm + 1 ; row < N ; row += size) {
             int r;
@@ -307,14 +303,11 @@ void gauss() {
                 MPI_Bcast((float *)&(B[row + r]), 1, MPI_FLOAT, r, MPI_COMM_WORLD);
             }
         }
-        // MPI_Bcast((float *)A[row + rank], N, MPI_FLOAT, rank, MPI_COMM_WORLD);
-        // MPI_Bcast((float *)&(B[row + rank]), 1, MPI_FLOAT, rank, MPI_COMM_WORLD);
-
         // before getting to the next iteration, we want every process to have the same A and B
         MPI_Barrier(MPI_COMM_WORLD);
 
-        if (rank == 1)
-        printAB("eot");
+        // if (rank == 1)
+        //     printAB("eot");
     }
     /* (Diagonal elements are not normalized to 1.  This is treated in back
     * substitution.)
