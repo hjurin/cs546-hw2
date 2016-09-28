@@ -91,7 +91,7 @@ void parameters(int argc, char **argv) {
     /* Read command-line arguments */
     srand(time_seed());  /* Randomize */
 
-    if (argc == 3) {
+    if (argc >= 3) {
         seed = atoi(argv[2]);
         srand(seed);
         sprintf(print_tmp, "Random seed = %i\n", seed);
