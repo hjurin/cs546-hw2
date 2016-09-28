@@ -258,8 +258,23 @@ void gauss() {
     printf("I am %d of %d\n", rank, size);
 
     /* Gaussian elimination */
-    MPI_Bcast((float *)A, N * N, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    for (row = 0; row < N ; row++) {
+        MPI_Bcast((float *)A[row], N, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    }
     MPI_Bcast((float *)B, N, MPI_FLOAT, 0, MPI_COMM_WORLD);
+
+    // ////////////////////
+    // printf("\nA%d =\n\t", rank);
+    // for (row = 0; row < N; row++) {
+    //     for (col = 0; col < N; col++) {
+    //         printf("%5.2f%s", A[row][col], (col < N-1) ? ", " : ";\n\t");
+    //     }
+    // }
+    // printf("\nB%d = [", rank);
+    // for (col = 0; col < N; col++) {
+    //     printf("%5.2f%s", B[col], (col < N-1) ? "; " : "]\n");
+    // }
+    // ///////////////////////////
     MPI_Barrier(MPI_COMM_WORLD);
 
     // loop that iterates on sub-matrices
@@ -270,6 +285,7 @@ void gauss() {
                 break;
             }
             multiplier = A[row + rank][norm] / A[norm][norm];
+            printf("I am %d, this is row %d and the multiplier parameters are %f and %f\n", rank, row + rank, A[row + rank][norm], A[norm][norm]);
             if (norm == 1) {
                 printf("I am %d, this is row %d and the multiplier is %f\n", rank, row + rank, multiplier);
             }
