@@ -285,18 +285,21 @@ void gauss() {
                 break;
             }
             multiplier = A[row + rank][norm] / A[norm][norm];
-            printf("norm %d, process %d, row %d before : [", norm, rank, row + rank);
-            for (col = 0; col < N; col++) {
-                printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+            if (norm == 0) {
+                printf("norm %d, process %d, row %d before : [", norm, rank, row + rank);
+                for (col = 0; col < N; col++) {
+                    printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+                }
+                printf("norm %d, process %d, row %d after : [", norm, rank, row + rank);
             }
-            printf("norm %d, process %d, row %d after : [", norm, rank, row + rank);
             for (col = norm; col < N; col++) {
                 A[row + rank][col] -= A[norm][col] * multiplier;
             }
-            for (col = 0; col < N; col++) {
-                printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+            if (norm == 0) {
+                for (col = 0; col < N; col++) {
+                    printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
+                }
             }
-
             B[row + rank] -= B[norm] * multiplier;
 
             // we gather the new computed rows
