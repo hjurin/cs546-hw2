@@ -253,8 +253,8 @@ void printAB() {
         }
     }
     printf("\nB%d =\n\t", rank);
-    for (col = 0; col < N; col++) {
-        printf("%5.2f%s", B[col], (col < N-1) ? ", " : ";\n\t");
+    for (row = 0; row < N; row++) {
+        printf("%5.2f%s", B[row], (row < N-1) ? ";\n\t " : ";\n");
     }
 }
 
