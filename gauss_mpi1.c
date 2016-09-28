@@ -244,15 +244,15 @@ int main(int argc, char **argv) {
 /* ------------------ Above Was Provided --------------------- */
 
 
-void printAB() {
+void printAB(char * opt) {
     int row, col;
-    printf("\nA%d =\n\t", rank);
+    printf("\nA%d%s =\n\t", rank, opt);
     for (row = 0; row < N; row++) {
         for (col = 0; col < N; col++) {
             printf("%5.2f%s", A[row][col], (col < N-1) ? ", " : ";\n\t");
         }
     }
-    printf("\nB%d =\n\t", rank);
+    printf("\nB%d%s =\n\t", rank, opt);
     for (row = 0; row < N; row++) {
         printf("%5.2f%s", B[row], (row < N-1) ? ";\n\t " : ";\n");
     }
@@ -280,7 +280,7 @@ void gauss() {
 
     ///////////////////////////
     if (rank == 1)
-        printAB();
+        printAB("beg");
     ///////////////////////////
     // MPI_Barrier(MPI_COMM_WORLD);
 
@@ -313,12 +313,12 @@ void gauss() {
             MPI_Bcast((float *)A[row + rank], N, MPI_FLOAT, rank, MPI_COMM_WORLD);
             MPI_Bcast((float *)&(B[row + rank]), 1, MPI_FLOAT, rank, MPI_COMM_WORLD);
         }
-        if (rank == 1)
-            printAB();
 
         // before getting to the next iteration, we want every process to have the same A and B
         MPI_Barrier(MPI_COMM_WORLD);
 
+        if (rank == 1)
+        printAB("eot");
     }
     /* (Diagonal elements are not normalized to 1.  This is treated in back
     * substitution.)
