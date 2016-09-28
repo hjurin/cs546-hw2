@@ -127,9 +127,11 @@ void initialize_inputs() {
     print_all();
     for (col = 0; col < N; col++) {
         for (row = 0; row < N; row++) {
-            A[row][col] = (float)rand() / 32768.0;
+            // A[row][col] = (float)rand() / 32768.0;
+            A[row][col] = (float)5;
         }
-        B[col] = (float)rand() / 32768.0;
+        // B[col] = (float)rand() / 32768.0;
+        B[col] = (float)1;
         X[col] = 0.0;
     }
 
