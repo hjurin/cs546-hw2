@@ -301,7 +301,8 @@ void gauss() {
 
         // we gather the new computed rows
         for (row = norm + 1 ; row < N ; row += size) {
-            for (int r = 0; r < size; r++) {
+            int r;
+            for (r = 0; r < size; r++) {
                 MPI_Bcast((float *)A[row + r], N, MPI_FLOAT, r, MPI_COMM_WORLD);
                 MPI_Bcast((float *)&(B[row + r]), 1, MPI_FLOAT, r, MPI_COMM_WORLD);
             }
