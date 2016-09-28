@@ -285,7 +285,7 @@ void gauss() {
                 break;
             }
             multiplier = A[row + rank][norm] / A[norm][norm];
-            if (norm == 0) {
+            if (norm == 1) {
                 printf("norm %d, process %d, row %d before : [", norm, rank, row + rank);
                 for (col = 0; col < N; col++) {
                     printf("%f%s", A[row + rank][col], (col == N - 1 ) ? "]\n" : ", ");
