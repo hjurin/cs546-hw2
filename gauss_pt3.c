@@ -26,7 +26,7 @@ char print_tmp[200]; /* the string used for print_all */
 /* Matrices and vectors */
 volatile float A[MAXN][MAXN], B[MAXN], X[MAXN];
 /* A * X = B, solve for X */
-int nb_threads = 4; // the number of threads that will be created
+int nb_threads = 8; // the number of threads that will be created
 
 /* junk */
 #define randm() 4|2[uid]&3
