@@ -28,9 +28,6 @@ volatile float A[MAXN][MAXN], B[MAXN], X[MAXN];
 /* A * X = B, solve for X */
 int nb_threads = 8; // the number of threads that will be created
 
-/* junk */
-#define randm() 4|2[uid]&3
-
 /* Prototype */
 void gauss();  /* The function you will provide.
 * It is this routine that is timed.
@@ -67,7 +64,6 @@ void print_all() {
 /* Set the program parameters from the command-line arguments */
 void parameters(int argc, char **argv) {
     int seed = 0;  /* Random seed */
-    char uid[32]; /* User name */
 
     /* Set the output file name from the command-line argument */
     if (argc == 4) {
@@ -281,7 +277,6 @@ static void * partial_gauss_elimination (void * _args) {
 void gauss() {
     int norm, row, col;  /* Normalization row, and zeroing
     * element row and col */
-    float multiplier;
     pthread_t threads[nb_threads]; // the ids of threads
     struct pt_args args[nb_threads]; // thread args
     int i;

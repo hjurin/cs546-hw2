@@ -29,9 +29,6 @@ volatile float A[MAXN][MAXN], B[MAXN], X[MAXN];
 
 int rank, size; // to be used to store process informations
 
-/* junk */
-#define randm() 4|2[uid]&3
-
 /* Prototype */
 void gauss();  /* The function you will provide.
 * It is this routine that is timed.
@@ -73,7 +70,6 @@ void print_all() {
 /* Set the program parameters from the command-line arguments */
 void parameters(int argc, char **argv) {
     int seed = 0;  /* Random seed */
-    char uid[32]; /* User name */
 
     /* Set the output file name from the command-line argument */
     if (argc == 4) {

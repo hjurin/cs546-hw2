@@ -65,7 +65,6 @@ void print_all() {
 /* Set the program parameters from the command-line arguments */
 void parameters(int argc, char **argv) {
     int seed = 0;  /* Random seed */
-    char uid[32]; /* User name */
 
     /* Set the output file name from the command-line argument */
     if (argc == 4) {
