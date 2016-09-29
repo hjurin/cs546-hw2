@@ -247,8 +247,6 @@ void printAB(char * opt) {
 // The structure which will contain the arguments needed by partial_gauss_elimination
 struct pge_glob_args {
     int norm;
-    int row;
-    float multiplier;
 };
 struct pge_glob_args glob_args;
 
@@ -260,13 +258,18 @@ struct pt_args {
 static void * partial_gauss_elimination (void * _args) {
     struct pt_args * args = (struct pt_args *) _args;
     int i = args->rank;
-    int col;
-    
-    for (col = glob_args.norm ; col < N; col += nb_threads) {
-        if (col + i >= N) {
+    int row, col;
+    float multiplier;
+
+    for (row = glob_args.norm + 1; row < N; row += nb_threads) {
+        if (row + i >= N) {
             break;
         }
-        A[glob_args.row][col + i] -= A[glob_args.norm][col + i] * glob_args.multiplier;
+        multiplier = A[row + i][glob_args.norm] / A[glob_args.norm][glob_args.norm];
+        for (col = glob_args.norm ; col < N; col++) {
+            A[row + i][col] -= A[glob_args.norm][col] * multiplier;
+        }
+        B[row + i] -= B[glob_args.norm] * multiplier;
     }
     return NULL;
 }
@@ -292,21 +295,15 @@ void gauss() {
     /* Gaussian elimination */
     for (norm = 0; norm < N - 1; norm++) {
         glob_args.norm = norm;
-        for (row = norm + 1; row < N; row++) {
-            multiplier = A[row][norm] / A[norm][norm];
-            glob_args.row = row;
-            glob_args.multiplier = multiplier;
-            // we split the work on nb_threads threads
-            for (i = 0; i < nb_threads; i++) {
-                ret = pthread_create(&threads[i], NULL, partial_gauss_elimination, (void *)&args[i]);
-                if (ret) {
-                    fprintf(stderr, "%s", strerror (ret));
-                }
+        // we split the work on nb_threads threads
+        for (i = 0; i < nb_threads; i++) {
+            ret = pthread_create(&threads[i], NULL, partial_gauss_elimination, (void *)&args[i]);
+            if (ret) {
+                fprintf(stderr, "%s", strerror (ret));
             }
-            for (i = 0; i < nb_threads; i++) {
-                pthread_join(threads[i], NULL);
-            }
-            B[row] -= B[norm] * multiplier;
+        }
+        for (i = 0; i < nb_threads; i++) {
+            pthread_join(threads[i], NULL);
         }
     }
     /* (Diagonal elements are not normalized to 1.  This is treated in back

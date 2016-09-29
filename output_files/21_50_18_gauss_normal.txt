@@ -1,0 +1,28 @@
+
+Output file = 21_50_18_gauss_normal.txt
+Random seed = 0
+
+Matrix dimension N = 4.
+
+Initializing...
+
+A =
+	15897.61, 65085.57, 61121.52, 12211.66;
+	882.74, 31739.61, 58188.07, 48211.73;
+	25109.39, 50157.18, 38753.39, 7540.12;
+	27174.68, 2086.26, 31377.24, 45787.29;
+	
+B = [4441.31; 2027.39; 54614.71; 23304.87]
+
+Starting clock.
+Computing Serially.
+Stopped clock.
+
+X = [ 0.48;  5.11; -6.36;  4.35]
+
+Elapsed time = 0.228 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0 ms.
+My system CPU time for parent = 0 ms.
+My total CPU time for child processes = 0 ms.
+--------------------------------------------

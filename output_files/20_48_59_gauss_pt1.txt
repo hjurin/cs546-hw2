@@ -1,0 +1,3 @@
+
+Output file = 20_48_59_gauss_pt1.txt
+Usage: ./pt <matrix_dimension> [random seed]

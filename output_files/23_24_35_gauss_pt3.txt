@@ -1,0 +1,10 @@
+
+Output file = 23_24_35_gauss_pt3.txt
+Random seed = 0
+
+Matrix dimension N = 100.
+
+Initializing...
+
+Starting clock.
+Computing Serially.

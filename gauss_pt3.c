@@ -244,30 +244,76 @@ void printAB(char * opt) {
     }
 }
 
-// The structure which will contain the arguments needed by partial_gauss_elimination
-struct pge_glob_args {
-    int norm;
-    int row;
-    float multiplier;
-};
-struct pge_glob_args glob_args;
-
+// thread args
 struct pt_args {
     int rank;
 };
 
+// number of threads to wait and its mutex
+volatile int working_threads;
+volatile int sleeping_threads;
+volatile char go[MAXN];
+pthread_mutex_t to_wait_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t threads_ended_turn = PTHREAD_COND_INITIALIZER;
+pthread_cond_t threads_started_turn = PTHREAD_COND_INITIALIZER;
+
 // The function executed by created threads in gauss()
 static void * partial_gauss_elimination (void * _args) {
+    int norm, row, col;  /* Normalization row, and zeroing
+    * element row and col */
+    float multiplier;
+
+    /* thread args */
     struct pt_args * args = (struct pt_args *) _args;
-    int i = args->rank;
-    int col;
-    
-    for (col = glob_args.norm ; col < N; col += nb_threads) {
-        if (col + i >= N) {
-            break;
+
+    /* Gaussian elimination */
+    for (norm = 0; norm < N - 1; norm++) {
+        for (row = norm + 1; row < N; row += nb_threads) {
+            if(row + args->rank >= N) {
+                break;
+            }
+            multiplier = A[row + args->rank][norm] / A[norm][norm];
+            for (col = norm; col < N; col++) {
+                A[row + args->rank][col] -= A[norm][col] * multiplier;
+            }
+            B[row + args->rank] -= B[norm] * multiplier;
         }
-        A[glob_args.row][col + i] -= A[glob_args.norm][col + i] * glob_args.multiplier;
+        // printf("%d is done working for round %d\n",args->rank, norm);
+        // fflush(stdout);
+
+        // // signal other thread we are done and wait until all threads have finished current submatrix
+        // while (sleeping_threads != 0 && norm != 0 && go[norm - 1] == 1) {
+        //     printf("%d waits everybody to wake up\n", args->rank);
+        //     pthread_cond_wait(&threads_started_turn, &to_wait_mutex);
+        // }
+        pthread_mutex_lock(&to_wait_mutex);
+
+        working_threads--;
+        // printf("I'm %d and there are still %d threads to wait.\n", args->rank, working_threads);
+        if(working_threads == 0) {
+            // printf("%d gives the go !\n", args->rank);
+            go[norm] = 1;
+            working_threads = nb_threads;
+            int i;
+            for (i = 0; i < nb_threads - 1; i++) {
+                pthread_cond_signal(&threads_ended_turn);
+            }
+        }
+
+        while (go[norm] == 0) {
+            // printf("%d is in round %d and goes to sleep\n", args->rank, norm);
+            // sleeping_threads++;
+            pthread_cond_wait(&threads_ended_turn, &to_wait_mutex);
+            // sleeping_threads--;
+            // printf("%d is in round %d and awake\n", args->rank, norm);
+        }
+        // if (sleeping_threads == 0) {
+        //     printf("round %d and everybody is awake!\n", norm);
+        //     pthread_cond_signal(&threads_started_turn);
+        // }
+        pthread_mutex_unlock(&to_wait_mutex);
     }
+
     return NULL;
 }
 
@@ -279,6 +325,11 @@ void gauss() {
     int norm, row, col;  /* Normalization row, and zeroing
     * element row and col */
     float multiplier;
+    working_threads = nb_threads;
+    sleeping_threads = 0;
+
+    for(norm = 0; norm < N; norm++)
+        go[norm] = 0;
     pthread_t threads[nb_threads]; // the ids of threads
     struct pt_args args[nb_threads]; // thread args
     int i;
@@ -289,26 +340,20 @@ void gauss() {
     sprintf(print_tmp, "Computing Serially.\n");
     print_all();
 
-    /* Gaussian elimination */
-    for (norm = 0; norm < N - 1; norm++) {
-        glob_args.norm = norm;
-        for (row = norm + 1; row < N; row++) {
-            multiplier = A[row][norm] / A[norm][norm];
-            glob_args.row = row;
-            glob_args.multiplier = multiplier;
-            // we split the work on nb_threads threads
-            for (i = 0; i < nb_threads; i++) {
-                ret = pthread_create(&threads[i], NULL, partial_gauss_elimination, (void *)&args[i]);
-                if (ret) {
-                    fprintf(stderr, "%s", strerror (ret));
-                }
-            }
-            for (i = 0; i < nb_threads; i++) {
-                pthread_join(threads[i], NULL);
-            }
-            B[row] -= B[norm] * multiplier;
+    // launch threads
+    for (i = 0; i < nb_threads; i++) {
+        ret = pthread_create(&threads[i], NULL, partial_gauss_elimination, (void *)&args[i]);
+        if (ret) {
+            fprintf(stderr, "%s", strerror (ret));
         }
     }
+
+    // wait for threads
+    for (i = 0; i < nb_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+
     /* (Diagonal elements are not normalized to 1.  This is treated in back
     * substitution.)
     */
