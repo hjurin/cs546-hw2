@@ -1,3 +1,0 @@
-
-Output file = 19_0_10_gauss_pt1.txt
-Usage: ./a.out <matrix_dimension> [random seed]

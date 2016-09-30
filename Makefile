@@ -21,6 +21,7 @@ pthread:
 	$(CC) $(CFLAGS) -pthread gauss_pt3.c -o pt3
 
 mrproper:
+	rm -rf *.csv
 	rm -rf normal*
 	rm -rf mpi*
 	rm -rf pt*

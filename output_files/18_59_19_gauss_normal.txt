@@ -1,0 +1,19 @@
+
+Output file = 18_59_19_gauss_normal.txt
+
+Matrix dimension N = 10.
+
+Initializing...
+
+Starting clock.
+Computing Serially.
+Stopped clock.
+
+X = [ 1.64;  0.70;  1.07; -1.63; -0.44;  1.44; -0.86;  0.24;  0.34; -1.05]
+
+Elapsed time = 0.293 ms.
+(CPU times are accurate to the nearest 0.001 ms)
+My total CPU time for parent = 0 ms.
+My system CPU time for parent = 0 ms.
+My total CPU time for child processes = 0 ms.
+--------------------------------------------

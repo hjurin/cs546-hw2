@@ -22,8 +22,8 @@
 int N;  /* Matrix size */
 char F[40]; /* Output file */
 char print_tmp[200]; /* the string used for print_all */
-/* Matrices and vectors */
-volatile float A[MAXN][MAXN], B[MAXN], X[MAXN];
+volatile float A[MAXN][MAXN], B[MAXN], X[MAXN]; /* Matrices and vectors */
+
 /* A * X = B, solve for X */
 
 /* junk */
@@ -42,6 +42,19 @@ unsigned int time_seed() {
 
     gettimeofday(&t, &tzdummy);
     return (unsigned int)(t.tv_usec);
+}
+
+// echo elapsed time in a csv file
+void print_time(char * seed, float time) {
+    char time_file[20] = "elapsed_times.csv";
+    FILE * file = fopen(time_file, "r");
+    if (file == NULL) { // if the file doesn't exist we create it with headers
+        file = fopen(time_file, "a");
+        fprintf(file, "program;size_matrix;seed;nb_processus;nb_threads;time\n");
+    }
+    file = fopen(time_file, "a");
+    char current_filename[20] = __FILE__;
+    fprintf(file, "%s;%d;%s;%d;%d;%g\n", strtok(current_filename, "."), N, seed, -1, -1, time);
 }
 
 /* output the given string to the file and to the output stream */
@@ -199,6 +212,9 @@ int main(int argc, char **argv) {
     sprintf(print_tmp, "\nElapsed time = %g ms.\n",
     (float)(usecstop - usecstart)/(float)1000);
     print_all();
+
+    // gather timing results
+    print_time((argc >= 3) ? argv[2] : "?", (float)(usecstop - usecstart)/(float)1000);
 
     sprintf(print_tmp, "(CPU times are accurate to the nearest %g ms)\n",
     1.0/(float)CLOCKS_PER_SEC * 1000.0);

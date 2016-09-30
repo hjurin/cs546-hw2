@@ -1,0 +1,20 @@
+
+Output file = 19_48_39_gauss_mpi1.txt
+Random seed = 0
+
+Matrix dimension N = 560.
+
+Initializing...
+
+Starting clock.
+Computing Serially.
+
+Output file = 19_48_39_gauss_mpi1.txt
+Random seed = 0
+
+Matrix dimension N = 570.
+
+Initializing...
+
+Starting clock.
+Computing Serially.
