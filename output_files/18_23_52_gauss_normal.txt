@@ -1,3 +1,0 @@
-
-Output file = 18_23_52_gauss_normal.txt
-Usage: ./normal <matrix_dimension> [random seed]

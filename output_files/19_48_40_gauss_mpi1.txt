@@ -1,7 +1,0 @@
-
-Output file = 19_48_40_gauss_mpi1.txt
-Random seed = 0
-
-Matrix dimension N = 580.
-
-Initializing...
