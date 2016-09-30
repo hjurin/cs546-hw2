@@ -1,6 +1,6 @@
 CC=gcc
 MPICC=mpicc
-CFLAGS=-std=c99 -Wall
+CFLAGS=-Wall
 MPICCFLAGS=$(CFLAGS)
 
 .PHONY: default all clean mrproper strats
